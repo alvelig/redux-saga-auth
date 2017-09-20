@@ -1,0 +1,21 @@
+{
+  "name": "redux-saga-auth",
+  "version": "0.0.1",
+  "description": "This library is a proposal of redux-saga auth flow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "redux-saga",
+    "auth",
+    "flow"
+  ],
+  "author": "Alexander Veligurov",
+  "license": "ISC",
+  "dependencies": {
+    "fbjs": "^0.8.15",
+    "redux-actions": "^2.2.1",
+    "redux-saga": "^0.15.6"
+  }
+}
