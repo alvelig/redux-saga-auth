@@ -6,17 +6,17 @@ const initialState = {
 };
 
 export default handleActions({
-  [login]: (state, { accessToken, refreshToken }) => ({
+  [login]: (state, { payload: { accessToken, refreshToken }}) => ({
     ...state,
     accessToken,
     refreshToken,
   }),
-  [register]: (state, { accessToken, refreshToken }) => ({
+  [register]: (state, { payload: { accessToken, refreshToken }}) => ({
     ...state,
     accessToken,
     refreshToken,
   }),
-  [tokenRefreshed]: (state, { accessToken }) => ({
+  [tokenRefreshed]: (state, { payload: { accessToken }}) => ({
     ...state,
     accessToken,
     tokenRefreshing: false
