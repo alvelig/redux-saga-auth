@@ -1,3 +1,6 @@
+import AuthReducers from './AuthReducers';
+import AuthSagas from './AuthSagas';
+
 export {
   login,
   afterLogin,
@@ -14,8 +17,6 @@ export {
   logoutSaga
 } from './AuthSagas';
 
-import AuthReducers from './AuthReducers';
-
 export const reducer = AuthReducers;
 
 export {
@@ -23,7 +24,5 @@ export {
   selectAccessToken,
   selectRefreshToken,
 } from './AuthSelectors';
-
-import AuthSagas from './AuthSagas';
 
 export default AuthSagas;
