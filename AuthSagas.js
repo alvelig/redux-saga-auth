@@ -49,7 +49,7 @@ export default function *AuthSagas({ saveTokens, updateAccessToken, resetTokens 
         break;
       } else if(refresh) {
         try {
-          yield put(updateAccessToken(refresh.payload));
+          yield call(updateAccessToken, refresh.payload);
         } catch (e) {
           console.error(e);
         }
