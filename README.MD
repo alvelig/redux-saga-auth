@@ -13,7 +13,7 @@ combineReducers({
 
 saga.run([
   AuthSaga({ 
-  saveTokens, //({ accessToken, refreshToken }) => throws error on failure
+  saveTokens, //({ user, accessToken, refreshToken }) => throws error on failure
   updateAccessToken, //({ accessToken }) => throws error on failure
   resetTokens // clears tokens above, throws error on failure 
   })
@@ -35,25 +35,28 @@ const dataKey = '@TokenData';
 
 const accessTokenKey = `${dataKey}:accessToken`;
 const refreshTokenKey = `${dataKey}:refreshToken`;
+const userKey = `${dataKey}:user`;
 
 export const restoreTokens = () => {
   return Promise.all([
     AsyncStorage.getItem(accessTokenKey),
     AsyncStorage.getItem(refreshTokenKey)
+    AsyncStorage.getItem(userKey).then(JSON.parse);
   ])
-    .then(data => ({ accessToken: data[0], refreshToken: data[1] }))
+    .then(data => ({ accessToken: data[0], refreshToken: data[1], user: data[2] }))
     .catch((error) => {
       console.log(`restore ${dataKey} error.`, error);
       return null;
     });
 };
 
-export const saveTokens = ({ accessToken, refreshToken }) => {
+export const saveTokens = ({ user, accessToken, refreshToken }) => {
   invariant(accessToken, "Save tokens: Access token must be present");
   invariant(refreshToken, "Save tokens: Refresh token must be present");
   return Promise.all(
     AsyncStorage.setItem(accessTokenKey, accessToken),
-    AsyncStorage.setItem(refreshTokenKey, refreshToken)
+    AsyncStorage.setItem(refreshTokenKey, refreshToken),
+    AsyncStorage.setItem(userKey, user)
   );
 };
 

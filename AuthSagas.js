@@ -28,9 +28,9 @@ export default function *AuthSagas({ saveTokens, updateAccessToken, resetTokens 
   while(true) {
 
     const { type, payload } = yield take([`${login}`, `${register}`]);
-    const { accessToken, refreshToken } = payload;
+    const { accessToken, refreshToken, user } = payload;
     try {
-      yield saveTokens({ accessToken, refreshToken });
+      yield saveTokens({ accessToken, refreshToken, user });
     } catch (e) {
       console.error(e);
       continue;

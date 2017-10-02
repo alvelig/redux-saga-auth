@@ -6,13 +6,15 @@ const initialState = {
 };
 
 export default handleActions({
-  [login]: (state, { payload: { accessToken, refreshToken }}) => ({
+  [login]: (state, { payload: { user, accessToken, refreshToken }}) => ({
     ...state,
+    user,
     accessToken,
     refreshToken,
   }),
-  [register]: (state, { payload: { accessToken, refreshToken }}) => ({
+  [register]: (state, { payload: { user, accessToken, refreshToken }}) => ({
     ...state,
+    user,
     accessToken,
     refreshToken,
   }),
