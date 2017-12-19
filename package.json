@@ -17,5 +17,8 @@
     "fbjs": "^0.8.15",
     "redux-actions": "^2.2.1",
     "redux-saga": "^0.15.6"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
   }
 }
