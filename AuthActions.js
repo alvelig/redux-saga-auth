@@ -1,19 +1,12 @@
-'use strict';
+import { createAction } from 'redux-actions';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.afterLogout = exports.logout = exports.tokenRefreshed = exports.tokenRefreshing = exports.afterRegister = exports.register = exports.afterLogin = exports.login = undefined;
+const ENTITY = '@@AUTH';
 
-var _reduxActions = require('redux-actions');
-
-var ENTITY = '@@AUTH';
-
-var login = exports.login = (0, _reduxActions.createAction)(ENTITY + '/LOGIN');
-var afterLogin = exports.afterLogin = (0, _reduxActions.createAction)(ENTITY + '/LOGIN_AFTER');
-var register = exports.register = (0, _reduxActions.createAction)(ENTITY + '/REGISTER');
-var afterRegister = exports.afterRegister = (0, _reduxActions.createAction)(ENTITY + '/REGISTER_AFTER');
-var tokenRefreshing = exports.tokenRefreshing = (0, _reduxActions.createAction)(ENTITY + '/TOKEN_REFRESHING');
-var tokenRefreshed = exports.tokenRefreshed = (0, _reduxActions.createAction)(ENTITY + '/TOKEN_REFRESHED');
-var logout = exports.logout = (0, _reduxActions.createAction)(ENTITY + '/LOGOUT');
-var afterLogout = exports.afterLogout = (0, _reduxActions.createAction)(ENTITY + '/LOGOUT_AFTER');
+export const login = createAction(`${ENTITY}/LOGIN`);
+export const afterLogin = createAction(`${ENTITY}/LOGIN_AFTER`);
+export const register = createAction(`${ENTITY}/REGISTER`);
+export const afterRegister = createAction(`${ENTITY}/REGISTER_AFTER`);
+export const tokenRefreshing = createAction(`${ENTITY}/TOKEN_REFRESHING`);
+export const tokenRefreshed = createAction(`${ENTITY}/TOKEN_REFRESHED`);
+export const logout = createAction(`${ENTITY}/LOGOUT`);
+export const afterLogout = createAction(`${ENTITY}/LOGOUT_AFTER`);
