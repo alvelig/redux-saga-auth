@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel -d . ./src/*"
+    "postinstall": "babel src --out-dir ."
   },
   "keywords": [
     "redux-saga",
@@ -15,14 +15,10 @@
   "author": "Alexander Veligurov",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
     "fbjs": "^0.8.15",
     "redux-actions": "^2.2.1",
     "redux-saga": "^0.15.6"
-  },
-  "devDependencies": {
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
   }
 }
