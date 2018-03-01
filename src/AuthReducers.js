@@ -7,24 +7,25 @@ const initialState = {
 
 export default handleActions({
   [login]: (state, { payload: { user, accessToken, refreshToken }}) =>
-    Object.assign(state, {
+    Object.assign({}, state, {
       user,
       accessToken,
       refreshToken,
     }),
   [register]: (state, { payload: { user, accessToken, refreshToken }}) =>
-    Object.assign(state, {
+    Object.assign({}, state, {
       user,
       accessToken,
       refreshToken,
     }),
   [tokenRefreshed]: (state, { payload: { accessToken }}) =>
-    Object.assign(state, {
+    Object.assign({}, state, {
       accessToken,
       tokenRefreshing: false
     }),
-  [tokenRefreshing]: (state) => Object.assign(state, {
-    tokenRefreshing: true
-  }),
-  [logout]: (state) => initialState
+  [tokenRefreshing]: (state) =>
+    Object.assign({}, state, {
+      tokenRefreshing: true
+    }),
+  [logout]: (state) => Object.assign({}, initialState)
 }, initialState);
